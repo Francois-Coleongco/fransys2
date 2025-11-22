@@ -1,12 +1,7 @@
 <script>
+	import { fade } from "svelte/transition";
 	import "../app.css";
 
-	// import golang from "@iconify-svelte/simple-icons/go";
-	// import rust from "@iconify-svelte/simple-icons/rust";
-	// import cpp from "@iconify-svelte/simple-icons/cplusplus";
-	// import python from "@iconify-svelte/simple-icons/python";
-	// import javascript from "@iconify-svelte/simple-icons/javascript";
-	// import bash from "@iconify-svelte/simple-icons/gnubash";
 	import Github from "@iconify-svelte/simple-icons/github";
 
 	const projects = [
@@ -42,6 +37,12 @@
 			link: "https://github.com/Francois-Coleongco/Network-Encryption-Interface",
 		},
 	];
+
+	let menuOpen = false;
+
+	const toggleHamburger = () => {
+		menuOpen = !menuOpen;
+	};
 </script>
 
 <div class="flex flex-col min-h-screen flicker-in text-white">
@@ -69,21 +70,8 @@
 			>
 		</div>
 
-		<div class="md:hidden flex flex-col gap-4 mt-2">
-			<a
-				href="#projects"
-				class="flicker-in transition transform transition-transform duration-200 hover:scale-104"
-				>Projects</a
-			>
-			<a
-				href="#contact"
-				class="flicker-in transition transform transition-transform duration-200 hover:scale-104"
-				>Contact</a
-			>
-		</div>
-
 		<div class="md:hidden">
-			<button id="menu-btn">
+			<button id="menu-btn" on:click={toggleHamburger}>
 				<svg
 					class="w-6 h-6"
 					fill="none"
@@ -100,28 +88,34 @@
 			</button>
 		</div>
 	</nav>
+	{#if menuOpen}
+		<div
+			class="md:hidden flex flex-col items-end mt-2 px-6 font-mono text-right"
+			transition:fade={{ duration: 150 }}
+		>
+			<div
+				class="w-40 backdrop-blur-sm bg-panelBg/80 border border-white rounded-md shadow-lg flex flex-col divide-y divide-white/40"
+			>
+				<a
+					href="#projects"
+					class="py-2 px-3 hover:text-white transition-transform duration-200 hover:scale-104"
+				>
+					Projects
+				</a>
+				<a
+					href="#contact"
+					class="py-2 px-3 hover:text-white transition-transform duration-200 hover:scale-104"
+				>
+					Contact
+				</a>
+			</div>
+		</div>
+	{/if}
 
 	<main class="flex-grow p-6">
 		<h2 class="text-center pipboy-flicker text-4xl mt-4 mb-4">
 			Hi, I'm Francois
 		</h2>
-
-		<section id="about">
-			<div class="max-w-xl mx-auto text-center mt-4 pt-16 pb-12 -mt-24">
-				<p
-					class="text-md font-mono leading-relaxed"
-					style="position: relative; z-index: 1;"
-				>
-					I'm an honors CS major at the <a
-						href="https://www.ualberta.ca/en/index.html"
-						class="underline">University of Alberta</a
-					>, interested in high-performance systems, cybersecurity,
-					and AI-driven solutions.
-				</p>
-			</div>
-		</section>
-
-		<br />
 
 		<section
 			id="projects"
@@ -137,7 +131,7 @@
 				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 					{#each projects as project (project.name)}
 						<div
-							class="backdrop-blur-sm opacity-75 w-full md:w-auto project-panel rounded-md shadow-lg p-4 flex flex-col justify-between hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-shadow border transform transition-transform duration-200 hover:scale-101 text-white"
+							class="backdrop-blur-sm opacity-90 w-full md:w-auto project-panel rounded-md shadow-lg p-4 flex flex-col justify-between hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-shadow border transform transition-transform duration-200 hover:scale-101 text-white"
 						>
 							<a
 								href={project.link}

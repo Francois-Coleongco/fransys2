@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     background-image: url('./lib/assets/bg.png');
