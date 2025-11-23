@@ -1,12 +1,36 @@
 @import "tailwindcss";
 
 html {
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 body {
-    background-image: url('./lib/assets/bg.png');
-    background-size: cover;       /* make it cover the entire screen */
-    background-position: center;  /* center the image */
-    background-repeat: no-repeat; /* don’t repeat the image */
+	background-image: url('./lib/assets/bg.png');
+	background-size: cover;
+	/* make it cover the entire screen */
+	background-position: center;
+	/* center the image */
+	background-repeat: no-repeat;
+	/* don’t repeat the image */
+}
+
+
+.project-panel {
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-panel.hover-right {
+	--tiltY: -5deg;
+	--tiltX: 3deg;
+}
+
+.project-panel.hover-left {
+	--tiltY: 5deg;
+	--tiltX: 3deg;
+}
+
+.project-panel.hover-left:hover,
+.project-panel.hover-right:hover {
+	transform: perspective(600px) rotateY(var(--tiltY)) rotateX(var(--tiltX)) translateY(-3px);
+	box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
 }

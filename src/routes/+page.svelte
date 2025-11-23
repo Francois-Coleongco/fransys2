@@ -9,32 +9,44 @@
 			name: "Multithreaded Encrypted File Server/Client",
 			description: "A terminal-based file storage server and client",
 			link: "https://github.com/Francois-Coleongco/MEFSC",
+			demo: "/assets/MEFSC.mp4",
+		},
+		{
+			name: "Speech-Driven AI Video Preprocessor",
+			description:
+				"An AI-powered video preprocessing for the lazy video editor",
+			link: "https://github.com/Francois-Coleongco/KeepItRolling",
+			demo: "/assets/KeepItRolling.mp4",
 		},
 		{
 			name: "HTTP Load Balancer",
-			description: "A hybrid scheduling HTTP load balancer",
+			description: "A Round-Robin HTTP load balancer",
 			link: "https://github.com/Francois-Coleongco/LoadBalancer",
+			demo: "/assets/LoadBalancer.mp4",
 		},
 		{
 			name: "Encrypted Steganography Suite",
 			description: "A GUI tool to encode encrypted messages in PNG files",
 			link: "https://github.com/Francois-Coleongco/Steganography_Suite",
+			demo: "/assets/SteganographySuite.mp4",
 		},
 		{
-			name: "Speech-Driven AI Video Preprocessor",
+			name: "DNS Data Exfiltration Detector",
 			description:
-				"AI-powered video preprocessing for the lazy video editor",
-			link: "https://github.com/Francois-Coleongco/KeepItRolling",
+				"A Machine Learning Model to detect threat-actor communication over the DNS protocol",
+			link: "https://github.com/Francois-Coleongco/DNS_Tunneling",
+			demo: "/assets/DNS_Tunneling.mp4",
 		},
-		{
-			name: "Distributed Threat Detection System",
-			description: "A distributed threat detection framework",
-			link: "https://github.com/Francois-Coleongco/SATD",
-		},
+		// {
+		// 	name: "Distributed Threat Detection System",
+		// 	description: "A distributed threat detection framework",
+		// 	link: "https://github.com/Francois-Coleongco/SATD",
+		// },
 		{
 			name: "Network Encryption Interface",
-			description: "C++ systems programming & encryption interface",
+			description: "A C++ systems programming & encryption interface",
 			link: "https://github.com/Francois-Coleongco/Network-Encryption-Interface",
+			demo: "/assets/NetworkEncInterface.mp4",
 		},
 	];
 
@@ -45,35 +57,21 @@
 	};
 </script>
 
-<div class="flex flex-col min-h-screen flicker-in text-white">
+<div class="min-h-screen bg-bg text-gray-200 font-mono">
 	<nav
-		class="opacity-75 border-b border-white px-6 py-3 flex justify-between items-center"
-		style="position: relative; z-index: 1;"
+		class="flex justify-between items-center px-6 py-4 border-b border-border"
 	>
-		<a
-			href="#"
-			class="font-mono text-xl tracking-widest flicker-in transform transition-transform duration-200 hover:scale-104"
+		<a href="/" class="text-cyan-400 text-xl tracking-widest"
+			>Francois Coleongco</a
 		>
-			Francois Coleongco
-		</a>
-
-		<div class="hidden md:flex space-x-6 font-mono">
-			<a
-				href="#projects"
-				class="hover:text-white transform transition-transform duration-200 hover:scale-104"
-				>Projects</a
-			>
-			<a
-				href="#contact"
-				class="hover:text-white transform transition-transform duration-200 hover:scale-104"
-				>Contact</a
-			>
+		<div class="hidden md:flex space-x-6">
+			<a href="#projects" class="text-cyan-400 transition">Projects</a>
+			<a href="#contact" class="text-cyan-400 transition">Contact</a>
 		</div>
-
 		<div class="md:hidden">
 			<button id="menu-btn" on:click={toggleHamburger}>
 				<svg
-					class="w-6 h-6"
+					class="w-6 h-6 text-accent"
 					fill="none"
 					stroke="currentColor"
 					stroke-width="2"
@@ -91,142 +89,98 @@
 	{#if menuOpen}
 		<div
 			class="md:hidden flex flex-col items-end mt-2 px-6 font-mono text-right"
-			transition:fade={{ duration: 150 }}
 		>
 			<div
-				class="w-40 backdrop-blur-sm bg-panelBg/80 border border-white rounded-md shadow-lg flex flex-col divide-y divide-white/40"
+				class="w-40 backdrop-blur-sm bg-panel/80 border border-border rounded-md shadow-lg flex flex-col divide-y divide-white/40"
 			>
 				<a
 					href="#projects"
-					class="py-2 px-3 hover:text-white transition-transform duration-200 hover:scale-104"
+					class="py-2 px-3 hover:text-accent transition">Projects</a
 				>
-					Projects
-				</a>
 				<a
 					href="#contact"
-					class="py-2 px-3 hover:text-white transition-transform duration-200 hover:scale-104"
+					class="py-2 px-3 hover:text-accent transition">Contact</a
 				>
-					Contact
-				</a>
 			</div>
 		</div>
 	{/if}
-
-	<main class="flex-grow p-6">
-		<h2 class="text-center pipboy-flicker text-4xl mt-4 mb-4">
-			Hi, I'm Francois
+	<main class="p-6">
+		<h2
+			class="text-cyan-400 font-mono text-center text-lg md:text-2xl mb-4 whitespace-pre-wrap break-words"
+		>
+			77 65 27 72 65 20 61 6c 6c 20 76 6f 69 64 20 70 6f 69 6e 74 65 72 73
 		</h2>
+		<p class="text-gray-200 text-center max-w-2xl mx-auto mb-12">
+			Hi, I'm Francois, an Honors CS major @ the University of Alberta
+			focused on building secure, efficient, and reliable tools and
+			applications.
+		</p>
 
 		<section
 			id="projects"
 			class="min-h-screen flex flex-col justify-center items-center text-center px-4 py-16 md:py-24"
 		>
-			<h2
-				class="pipboy-flicker text-4xl mb-4 pb-8"
-				style="position: relative; z-index: 1;"
-			>
-				Projects
-			</h2>
-			<section class="bg-panelBg/80 p-6">
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-					{#each projects as project (project.name)}
-						<div
-							class="backdrop-blur-sm opacity-90 w-full md:w-auto project-panel rounded-md shadow-lg p-4 flex flex-col justify-between hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] transition-shadow border transform transition-transform duration-200 hover:scale-101 text-white"
-						>
-							<a
-								href={project.link}
-								target="_blank"
-								class="block"
+			<h2 class="pipboy-flicker text-cyan-400 text-4xl mb-8">Projects</h2>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl">
+				{#each projects as project, i (project.name)}
+					<div
+						class="project-panel bg-[#1C1C33] border border-[#222244] rounded-lg shadow-lg p-6 flex flex-col justify-between transform transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_12px_25px_rgba(0,255,255,0.2)]
+               {i % 2 === 0 ? 'hover-left' : 'hover-right'}"
+					>
+						<a href={project.link} target="_blank" class="block">
+							<h3
+								class="text-cyan-400 text-xl font-mono mb-2 leading-snug"
 							>
-								<h3 class="text-xl font-mono mb-2 leading-snug">
-									{project.name}
-								</h3>
-								<p class="text-sm leading-relaxed mb-2">
-									{project.description}
-								</p>
-							</a>
-							<Github
-								height="24"
-								class="animate-pulse text-gray-400 hover:text-white transition-all duration-1000 drop-shadow-[0_0_5px_rgba(255,255,255,0.6)] hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.9)] cursor-pointer"
-							/>
-						</div>
-					{/each}
-				</div>
-			</section>
+								{project.name}
+							</h3>
+							<p
+								class="text-gray-200 text-sm leading-relaxed mb-4"
+							>
+								{project.description}
+							</p>
+							{#if project.demo}
+								<div
+									class="video-wrapper w-full aspect-video overflow-hidden rounded-md border border-[#222244] shadow-lg"
+								>
+									<video
+										src={project.demo}
+										autoplay
+										muted
+										loop
+										class="w-full h-full object-cover rounded-md"
+									/>
+								</div>
+							{/if}
+						</a>
+						<Github
+							height="24"
+							class="text-gray-200 hover:text-cyan-400 animate-pulse transition-all duration-1000 drop-shadow-[0_0_5px_rgba(0,255,255,0.5)] hover:drop-shadow-[0_0_10px_rgba(0,255,255,0.9)] cursor-pointer mt-4"
+						/>
+					</div>
+				{/each}
+			</div>
+		</section>
+
+		<section id="contact" class="mt-16 text-center">
+			<h2 class="text-4xl text-cyan-400 mb-6">CONTACT</h2>
+			<div class="flex flex-col md:flex-row justify-center gap-4">
+				<a
+					href="mailto:francois.coleongco@gmail.com"
+					class="bg-panel border border-border rounded-lg px-6 py-3 hover:shadow-lg hover:translate-y-[-2px] transition-all text-cyan-400"
+					>Email Me</a
+				>
+				<a
+					href="https://linkedin.com/in/francois-coleongco"
+					target="_blank"
+					class="bg-panel border border-border rounded-lg px-6 py-3 hover:shadow-lg hover:translate-y-[-2px] transition-all text-cyan-400"
+					>LinkedIn</a
+				>
+			</div>
 		</section>
 	</main>
 
-	<section
-		id="contact"
-		class="min-h-screen flex flex-col justify-center items-center text-center px-4 py-16 md:py-24"
-	>
-		<h2
-			class="pipboy-flicker text-4xl mb-4 pb-8"
-			style="position: relative; z-index: 1;"
-		>
-			CONTACT
-		</h2>
-		<p class="mb-6 pb-4" style="position: relative; z-index: 1;">
-			Want to get in touch? Shoot me an email or connect on GitHub.
-		</p>
-		<div class="flex flex-col md:flex-row gap-4">
-			<a
-				href="mailto:francois.coleongco@gmail.com"
-				class="backdrop-blur-sm project-panel p-4 border border-white rounded-lg hover:text-white flicker-in transition text-center transform transition-transform duration-200 hover:scale-104"
-				style="position: relative; z-index: 1;"
-			>
-				Email Me
-			</a>
-			<a
-				href="https://linkedin.com/in/francois-coleongco"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="backdrop-blur-sm project-panel p-4 border border-white rounded-lg hover:text-white flicker-in transition text-center transform transition-transform duration-200 hover:scale-104"
-				style="position: relative; z-index: 1;"
-			>
-				LinkedIn
-			</a>
-		</div>
-	</section>
-
-	<p class="text-center" style="position: relative; z-index: 1;">
-		(you == void *) == true
-	</p>
-	<br />
-
-	<footer
-		class="bg-panelBg/90 scanline border-t-2 border-white py-6 px-6 flex flex-col md:flex-row justify-between items-center text-sm mt-0"
-	>
-		<div
-			class="mb-4 md:mb-0 font-mono"
-			style="position: relative; z-index: 1;"
-		>
-			© 2025 Francois Coleongco
-		</div>
-		<div class="flex gap-6">
-			<a
-				href="https://github.com/Francois-Coleongco"
-				target="_blank"
-				class="flex items-center gap-1 hover:text-white transform transition-transform duration-200 hover:scale-104"
-				style="position: relative; z-index: 1;"
-			>
-				GitHub
-			</a>
-			<a
-				href="https://www.linkedin.com/in/francois-coleongco"
-				target="_blank"
-				class="flex items-center gap-1 hover:text-white transform transition-transform duration-200 hover:scale-104"
-				style="position: relative; z-index: 1;"
-			>
-				LinkedIn
-			</a>
-			<a
-				href="mailto:francois.coleongco@gmail.com"
-				class="flex items-center gap-1 hover:text-white transform transition-transform duration-200 hover:scale-104"
-				style="position: relative; z-index: 1;"
-			>
-				Email
-			</a>
-		</div>
+	<footer class="mt-16 border-t border-border py-6 text-center text-gray-200">
+		© 2025 Francois Coleongco
 	</footer>
 </div>
