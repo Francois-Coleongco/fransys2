@@ -3,6 +3,7 @@
 	import "../app.css";
 
 	import Github from "@iconify-svelte/simple-icons/github";
+	import { onMount } from "svelte";
 
 	const projects = [
 		{
@@ -55,7 +56,36 @@
 	const toggleHamburger = () => {
 		menuOpen = !menuOpen;
 	};
+
+	let videos = [];
+
+	onMount(() => {
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				const video = entry.target;
+				if (entry.isIntersecting) {
+					video.play();
+				} else {
+					video.pause();
+					console.log("paused");
+				}
+			});
+		});
+
+		videos.forEach((video) => {
+			if (video) observer.observe(video);
+		});
+	});
+
+	let scrollY = 0;
+	// Track scroll
+	function handleScroll() {
+		scrollY = window.scrollY;
+		document.body.style.backgroundPosition = `center ${scrollY * -0.1}px`;
+	}
 </script>
+
+<svelte:window on:scroll={handleScroll} />;
 
 <div class="min-h-screen bg-bg text-gray-200 font-mono">
 	<nav
@@ -125,7 +155,7 @@
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl">
 				{#each projects as project, i (project.name)}
 					<div
-						class="project-panel bg-[#1C1C33] border border-[#222244] rounded-lg shadow-lg p-6 flex flex-col justify-between transform transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_12px_25px_rgba(0,255,255,0.2)]
+						class="project-panel bg-[#1C1C33] backdrop-blur-lg opacity-90 border border-[#222244] rounded-lg shadow-lg p-6 flex flex-col justify-between transform transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_12px_25px_rgba(0,255,255,0.2)]
                {i % 2 === 0 ? 'hover-left' : 'hover-right'}"
 					>
 						<a href={project.link} target="_blank" class="block">
@@ -144,6 +174,7 @@
 									class="video-wrapper w-full aspect-video overflow-hidden rounded-md border border-[#222244] shadow-lg"
 								>
 									<video
+										bind:this={videos[i]}
 										src={project.demo}
 										autoplay
 										muted
@@ -153,10 +184,20 @@
 								</div>
 							{/if}
 						</a>
-						<Github
-							height="24"
-							class="text-gray-200 hover:text-cyan-400 animate-pulse transition-all duration-1000 drop-shadow-[0_0_5px_rgba(0,255,255,0.5)] hover:drop-shadow-[0_0_10px_rgba(0,255,255,0.9)] cursor-pointer mt-4"
-						/>
+						<div class="flex items-center space-x-2 mt-4">
+							<a href={project.link}>
+								<Github
+									height="24"
+									class="text-gray-200 block -translate-y-2 hover:text-cyan-400 animate-pulse transition-all duration-1000 drop-shadow-[0_0_5px_rgba(0,255,255,0.5)] hover:drop-shadow-[0_0_10px_rgba(0,255,255,0.9)] cursor-pointer mt-4"
+								/>
+							</a>
+							<a
+								href={project.link}
+								class="text-gray-200 hover:text-cyan-400"
+							>
+								{project.link.slice(19)}
+							</a>
+						</div>
 					</div>
 				{/each}
 			</div>
