@@ -7,13 +7,7 @@ html {
 body {
 	background-image: url('./lib/assets/bg.webp');
 	background-size: cover;
-	/* keeps it covering horizontally */
 	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-position: center top;
-	/* changed from center center */
-	min-height: 100vh;
-
 	background-color: #000;
 }
 
