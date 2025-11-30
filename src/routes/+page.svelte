@@ -142,6 +142,7 @@
 		>
 			77 65 27 72 65 20 61 6c 6c 20 76 6f 69 64 20 70 6f 69 6e 74 65 72 73
 		</h2>
+		<br />
 		<p class="text-gray-200 text-center max-w-2xl mx-auto mb-12">
 			Hi, I'm Francois, an Honors CS major @ the University of Alberta
 			focused on building secure, efficient, and reliable tools and
@@ -157,7 +158,7 @@
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl">
 				{#each projects as project, i (project.name)}
 					<div
-						class="project-panel bg-[#1C1C33] backdrop-blur-lg opacity-90 border border-[#222244] rounded-lg shadow-lg p-6 flex flex-col justify-between transform transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_12px_25px_rgba(0,255,255,0.2)]
+						class="project-panel opacity-90 inverse-bg backdrop-blur-lg border border-[#222244] rounded-lg shadow-lg p-6 flex flex-col justify-between transform transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_12px_25px_rgba(0,255,255,0.2)]
                {i % 2 === 0 ? 'hover-left' : 'hover-right'}"
 					>
 						<a href={project.link} target="_blank" class="block">
@@ -173,7 +174,7 @@
 							</p>
 							{#if project.demo}
 								<div
-									class="w-full aspect-video overflow-hidden rounded-md border border-[#222244] shadow-lg"
+									class="w-full overflow-hidden rounded-md border border-[#222244] shadow-lg"
 								>
 									<video
 										bind:this={videos[i]}

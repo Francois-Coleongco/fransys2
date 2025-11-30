@@ -4,12 +4,101 @@ html {
 	scroll-behavior: smooth;
 }
 
+html,
 body {
-	background-image: url('./lib/assets/bg.webp');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-color: #000;
+	height: 100%;
+	margin: 0;
 }
+
+.bg-anim {
+	position: absolute;
+	inset: 0;
+	z-index: -999;
+	/* behind everything */
+	background-image: url("./lib/assets/bg.png");
+	background-repeat: repeat-y;
+	background-size: 200% auto;
+	/* your custom scale */
+	animation: scrollBg 15s linear infinite;
+	pointer-events: none;
+}
+
+.bg-anim.clone {
+	top: -100%;
+}
+
+@keyframes scrollBg {
+	from {
+		transform: translateY(0);
+	}
+
+	to {
+		transform: translateY(100%);
+	}
+}
+
+body {
+	background-image: url("./lib/assets/bg.png");
+	background-repeat: repeat-y;
+	background-size: 500% 500%;
+}
+
+body::before {
+	content: "";
+	position: fixed;
+	/* stays put even while scrolling */
+	inset: 0;
+	background: rgba(0, 0, 0, 0.5);
+	/* adjust darkness here */
+	z-index: -1;
+	/* behind your content */
+	pointer-events: none;
+}
+
+@keyframes scrollBg {
+	from {
+		background-position: 0 0;
+	}
+
+	to {
+		background-position: 0 1000px;
+	}
+}
+
+
+.inverse-bg {
+	position: relative;
+	z-index: 0;
+}
+
+.inverse-bg::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+
+	background: rgba(255, 255, 255, 0.1);
+
+	mix-blend-mode: difference;
+
+	border-radius: inherit;
+	pointer-events: none;
+}
+
+@keyframes gradientShift {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 
 .project-panel {
 	transition: transform 0.25s ease, box-shadow 0.25s ease;
