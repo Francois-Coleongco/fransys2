@@ -10,33 +10,6 @@ body {
 	margin: 0;
 }
 
-.bg-anim {
-	position: absolute;
-	inset: 0;
-	z-index: -999;
-	/* behind everything */
-	background-image: url("./lib/assets/bg.png");
-	background-repeat: repeat-y;
-	background-size: 200% auto;
-	/* your custom scale */
-	animation: scrollBg 15s linear infinite;
-	pointer-events: none;
-}
-
-.bg-anim.clone {
-	top: -100%;
-}
-
-@keyframes scrollBg {
-	from {
-		transform: translateY(0);
-	}
-
-	to {
-		transform: translateY(100%);
-	}
-}
-
 body {
 	background-image: url("./lib/assets/bg.png");
 	background-repeat: repeat-y;
